@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+
+:root {
+  --base: hsl(222, 15%, 50%);
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: none;
+  font-family: "Spartan";
+}
+
+.body {
+  display: flex;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: hsl(180, 52%, 96%);
+}
+
+.bg-header {
+  /* background-image: url("./images/bg-header-desktop.svg"); */
+  background-repeat: no-repeat;
+  background-color: hsl(180, 29%, 50%);
+  background-size: cover;
+  height: 150px;
+  width: 100vw;
+}
+
+.filter-bar {
+  display: flex;
+  height: 50px;
+  background-color: white;
+  padding: 10px;
+  margin: -25px 70px 0px 70px;
+  border-radius: 5px;
+  box-shadow: 5px 10px 8px hsl(180, 28%, 84%);
+}
+
+.job-listings-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.job-listing {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: white;
+  margin: 5px 20px 10px 20px;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 5px 10px 8px hsl(180, 28%, 84%);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 0.5;
+  /* background-color: yellow; */
+  margin: 5px;
+}
+
+.company {
+  color: hsl(180, 29%, 50%);
+  padding-top: 5px;
+}
+
+.job-listing-header {
+  display: flex;
+  flex-direction: row;
+  padding-top: 5px;
+}
+
+.new,
+.featured {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  padding: 3px 7px 0px 7px;
+  border-radius: 15px;
+  background-color: hsl(180, 29%, 50%);
+  margin-left: 10px;
+  color: white;
+  font-size: 8px;
+}
+
+.featured {
+  background-color: black;
+}
+
+.job-listing-mid-section {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.title {
+  padding: 10px 0px 5px 0px;
+}
+
+.job-listing-details {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  margin-top: 5px;
+  color: hsl(180, 8%, 52%);
+}
+
+.posted-at,
+.contract,
+.location {
+  margin-right: 20px;
+}
+
+.right-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 2;
+}
+
+.right-section-item,
+.filter-bar-item {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(180, 52%, 96%);
+  padding: 5px;
+  margin: 5px;
+  color: hsl(180, 29%, 50%);
+  border-radius: 3px;
+}
+
+.right-section-item:hover {
+  cursor: pointer;
+}
