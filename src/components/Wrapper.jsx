@@ -1,14 +1,13 @@
 import JobListing from './JobListing'
 import FilterBar from './FilterBar'
-import { useGlobalContext} from './GlobalState'
 import { useEffect } from 'react'
+import { useGlobalContext} from './GlobalState'
 
 function App() {
     const globalContext = useGlobalContext();
     const {
         items,
-        Listings,
-        setListings
+        Listings
     } = globalContext; 
 
 const renderJobListing = () => {

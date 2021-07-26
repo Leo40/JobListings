@@ -34,7 +34,9 @@ function RightSection({ Listing }) {
         setItemClicked(true);
         setItems([...items, item]);  
 
-        const filteredListings = Listings.filter(listing => {
+        const copiedListings = Listings;
+
+        const filteredListings = copiedListings.filter(listing => {
             const values = Object.values(listing);
 
             return values.filter(value => {
@@ -49,8 +51,7 @@ function RightSection({ Listing }) {
                 .some(val => { 
                     return val.includes(item);
                 })
-        });
-        
+        });        
         setListings(filteredListings);  
     }
     
