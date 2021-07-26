@@ -1,37 +1,21 @@
 import JobListing from './JobListing'
 import FilterBar from './FilterBar'
-import Listings from '../data.json'
 import { useGlobalContext} from './GlobalState'
+import { useEffect } from 'react'
 
 function App() {
     const globalContext = useGlobalContext();
     const {
-        items
-    } = globalContext;
-
-const filteredListings = Listings.filter(listing => {
-
-    const allItems = items.join();    
-    const allLanguages = listing.languages;
-    const allTools = listing.tools;
-    const role = listing.role;
-    const level = listing.level;
-
-    console.log(allItems);
-    console.log(allLanguages);
-    console.log(allTools);
-
-    if(!allLanguages.includes(allItems) && !allTools.includes(allItems) && !allItems.includes(role) && !allItems.includes(level)){
-       return listing;
-   } 
-})
+        items,
+        Listings,
+        setListings
+    } = globalContext; 
 
 const renderJobListing = () => {
-    const allJobListings = filteredListings.map(Listing => {            
+    const allJobListings = Listings.map(Listing => {            
         return (<JobListing Listing={Listing}/>);                    
-    });
-
-return allJobListings;
+    })
+    return allJobListings;    
 }
 
   return (   
