@@ -1,28 +1,49 @@
 import { useGlobalContext} from './GlobalState'
 import JobListings from '../data.json'
 
-function FilterBar() {
+function FilterBar({ filterListings }) {
     const globalContext = useGlobalContext();
     const {
         items,
         itemClicked,   
+        activeStateStyle,
         setListings,
         setItems,
-        setItemClicked
+        setItemClicked,
+        setActiveStateStyle
     } = globalContext;
 
-    const handleClear = () => {
+    const handleClearButton = () => {
         setListings(JobListings);
         setItems([]);
         setItemClicked(false);
     }
 
-    const handleButton = (clickedItem) => {
+    const handleCloseButton = (clickedItem) => {        
         const filteredItems = items.filter(item => {
-            return item !== clickedItem;
+            return item !== clickedItem;            
         })
-
+        
         setItems(filteredItems);
+
+        const filteredListings = filteredItems.reduce((accu, curr) => {
+            return filterListings(accu, curr);    
+        }, JobListings)
+        setListings(filteredListings);
+    }
+
+    const renderItems = () => {        
+        const renderedItems = items.map((item) => {     
+            // alert(item);
+            return <div className="filter-bar-item"> 
+                {item}
+                <div className="close-button" onClick={() => {handleCloseButton(item)}}>X</div>
+            </div>            
+            })
+            if(items.length === 0) {            
+                setItemClicked(false);
+            } 
+        return renderedItems;
     }
 
     const renderFilterBar = () => {
@@ -32,21 +53,10 @@ function FilterBar() {
                 {renderItems()}
                 </div>
                 <div className="filter-bar-right">
-                <div className="clear" onClick={handleClear}>Clear</div>
+                <div className="clear" onClick={handleClearButton}>Clear</div>
                 </div>                     
             </div>
         )
-    }
-
-    const renderItems = () => {        
-        const renderedItems = items.map(item => {     
-            // alert(item);
-            return <div className="filter-bar-item"> 
-                {item}
-                <div className="close-button" onClick={() => {handleButton(item)}}>X</div>
-            </div>            
-            })
-        return renderedItems;
     }
 
     return (

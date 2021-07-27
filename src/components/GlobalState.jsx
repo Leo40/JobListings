@@ -9,21 +9,21 @@ export function useGlobalContext() {
 
 export function GlobalState({ children }) {   
 
-    const [active, setActive] = useState(false);
     const [itemClicked, setItemClicked] = useState(false);
     const [items, setItems] = useState([]);
     const [Listings, setListings] = useState(JobListings);
+    const [activeStateStyle, setActiveStateStyle] = useState("hsl(180, 52%, 96%)");    
   
     return (        
         <GlobalContext.Provider value={{ 
-            active, 
             itemClicked,
             items,
             Listings,
-            setActive,
+            activeStateStyle,
             setItemClicked,
             setItems,
-            setListings
+            setListings,
+            setActiveStateStyle,
          }}>
             {children}
         </GlobalContext.Provider>        
