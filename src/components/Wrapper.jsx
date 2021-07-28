@@ -3,6 +3,10 @@ import FilterBar from './FilterBar'
 import { useGlobalContext} from './GlobalState'
 
 function Wrapper() {
+    const globalContext = useGlobalContext();
+    const {
+        Listings
+    } = globalContext; 
 
     const filterListings = (Listings, item) => {
         const filteredListings = Listings.filter(listing => {
@@ -25,11 +29,6 @@ function Wrapper() {
         return filteredListings
     }        
 
-    const globalContext = useGlobalContext();
-    const {
-        Listings
-    } = globalContext; 
-
 const renderJobListing = () => {
     const allJobListings = Listings.map(Listing => {            
         return (<JobListing filterListings={filterListings} Listing={Listing}/>);                    
@@ -39,7 +38,7 @@ const renderJobListing = () => {
 
   return (   
     <>   
-        <div className="bg-header"></div>
+        <div className="bg-header" style={{backgroundImage: `url("./images/bg-header-desktop.svg")`}}></div>
             <FilterBar filterListings={filterListings} />
         <div className="job-listings-wrapper">{renderJobListing()}</div>
     </>

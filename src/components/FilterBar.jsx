@@ -6,17 +6,16 @@ function FilterBar({ filterListings }) {
     const {
         items,
         itemClicked,   
-        activeStateStyle,
         setListings,
         setItems,
         setItemClicked,
-        setActiveStateStyle
     } = globalContext;
 
     const handleClearButton = () => {
         setListings(JobListings);
-        setItems([]);
+        setItems();
         setItemClicked(false);
+        setItems([]);
     }
 
     const handleCloseButton = (clickedItem) => {        
@@ -32,7 +31,7 @@ function FilterBar({ filterListings }) {
         setListings(filteredListings);
     }
 
-    const renderItems = () => {        
+    const renderItems = () => {   
         const renderedItems = items.map((item) => {     
             // alert(item);
             return <div className="filter-bar-item"> 

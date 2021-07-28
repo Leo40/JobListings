@@ -29,7 +29,6 @@
 }
 
 .bg-header {
-  /* background-image: url("./images/bg-header-desktop.svg"); */
   background-repeat: no-repeat;
   background-color: hsl(180, 29%, 50%);
   background-size: cover;
@@ -41,7 +40,7 @@
   display: flex;
   height: 50px;
   background-color: white;
-  padding: 10px;
+  padding: 20px 30px 20px 30px;
   margin: -25px 70px 0px 70px;
   border-radius: 5px;
   box-shadow: 5px 10px 8px hsl(180, 28%, 84%);
@@ -60,7 +59,7 @@
   background-color: white;
   margin: 5px 20px 10px 20px;
   border-radius: 5px;
-  padding: 20px;
+  padding: 20px 30px 20px 10px;
   box-shadow: 5px 10px 8px hsl(180, 28%, 84%);
 }
 
@@ -69,7 +68,6 @@
   justify-content: center;
   align-items: flex-start;
   flex: 0.5;
-  /* background-color: yellow; */
   margin: 5px;
 }
 
@@ -135,11 +133,6 @@
   flex: 2;
 }
 
-/* .filter-bar {
-  display: flex;
-  flex-direction: row;
-} */
-
 .right-section-item,
 .filter-bar-item,
 .clear {
@@ -153,6 +146,15 @@
   margin: 5px;
   color: hsl(180, 29%, 50%);
   border-radius: 3px;
+}
+
+.tab-is-active {
+  background-color: hsl(180, 29%, 50%);
+  color: white;
+}
+
+.title-is-active {
+  color: hsl(180, 29%, 50%);
 }
 
 .filter-bar-left {

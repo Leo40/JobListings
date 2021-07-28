@@ -7,14 +7,13 @@ function JobListing({ Listing, filterListings }) {
     const {
         Listings,
         items,
-        activeStateStyle,
+        activeId,
         setListings,
         setItems,
         setItemClicked,
-        setActiveStateStyle
     } = globalContext; 
 
-    const { id, company, logo, newJob, featured, position, role, level, postedAt, contract, location, languages, tools } = Listing;
+    const { company, logo, newJob, featured, position, postedAt, contract, location } = Listing;
 
     const renderTabs = () => {        
         const tabs = [];
@@ -28,14 +27,18 @@ function JobListing({ Listing, filterListings }) {
             }                
         });
 
-        const renderedTabs = tabs.map(tab => {            
-            return <div className="right-section-item" style={{backgroundColor: activeStateStyle}} onClick={() => {handleTabClick(tab)}}>{tab}</div>
+        const renderedTabs = tabs.map((tab, index) => {             
+            return <div className={`right-section-item ${items.includes(tab) && 'tab-is-active'}`} onClick={() => {handleTabClick(tab)}}>{tab}</div>
             });        
         
         return renderedTabs;
     }
 
     const handleTabClick = (item) => {
+        if(items.includes(item)){
+            return
+        }
+        
         setItemClicked(true);
         setItems([...items, item]);  
         
@@ -46,7 +49,7 @@ function JobListing({ Listing, filterListings }) {
     return (
         <div className="job-listing">
             <div className="logo"> 
-                <img src={Listing.logo} alt={"logo"}/>
+                <img src={logo} alt={"logo"}/>
             </div>
             <div className="job-listing-mid-section">
                 <div className="job-listing-header">
@@ -54,13 +57,13 @@ function JobListing({ Listing, filterListings }) {
                     {newJob ? <div className="new">NEW!</div> : ""}
                     {featured ?  <div className="featured">FEATURED</div> : ""}
                 </div>
-                <div className="title">
-                    {Listing.position}
+                <div className={`title ${items.length > 0 && 'title-is-active'}`}>
+                    {position}
                 </div>
                 <div className="job-listing-details">
-                    <div className="posted-at">{Listing.postedAt}</div>
-                    <div className="contract">{Listing.contract}</div>
-                    <div className="location">{Listing.location}</div>
+                    <div className="posted-at">{postedAt}</div>
+                    <div className="contract">{contract}</div>
+                    <div className="location">{location}</div>
                 </div>
             </div>
             <div className="right-section">
